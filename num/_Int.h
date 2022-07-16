@@ -1,7 +1,12 @@
-#pragma once 
+/*
+ * This is the implementation by
+ */
+
+#pragma once
 
 #include<string>
 #include<iostream>
+#include<algorithm>
 #include<vector>
 
 
@@ -19,7 +24,7 @@ public:
 	_Int(const std::string&);
 	_Int(const std::string&, bool);
 	_Int(const char*);
-	
+
 	//copy
 	_Int(const _Int&);
 	const _Int& operator=(const _Int&);
@@ -41,7 +46,7 @@ public:
 	void operator>>=(int i);
 	//void operator<<(int i);
 	//void operator>>(int i);
-	
+
 	//unary
 	_Int& operator++();
 	_Int operator++(int);
@@ -96,7 +101,7 @@ inline _Int::_Int(int i):neg(false),digits("")
 		neg = true;
 		i = -i;
 	}
-	do 
+	do
 	{
 		digits.push_back(i % 10+'0');
 		i /= 10;
@@ -130,7 +135,7 @@ inline _Int::_Int(unsigned long long i)
 
 inline _Int::_Int(const std::string& str)
 	:digits(),neg(false)
-{	
+{
 	std::string::size_type x=0;
 	if (str[0] == '-')
 		x = neg = 1;
@@ -281,7 +286,7 @@ inline _Int& _Int::operator++()
 			digits.pop_back();
 		return *this;
 	}
-	
+
 	std::string::size_type i=0, end = digits.length();
 	while (i < end && digits[i] == '9')
 		digits[i++] = '0';
@@ -372,8 +377,8 @@ _Int& operator+=(_Int& l, const _Int& rc)
 
 		//idk why but it fixes it.
 		//std::reverse(r.digits.begin(), r.digits.end());
-		
-		// implement l = |l|-|r| and keep the symbol of l 
+
+		// implement l = |l|-|r| and keep the symbol of l
 		std::string::size_type idx=0,
 			n = l.digits.length(), m = r.digits.length();
 		if (n < m) {
@@ -427,7 +432,7 @@ inline _Int operator+(const _Int&l, const _Int&r)
 	return t;
 }
 
-//calls -= which ultimately calls += -(rhs) to subtract it. 
+//calls -= which ultimately calls += -(rhs) to subtract it.
 inline _Int operator-(const _Int&l, const _Int&r)
 {
 	_Int tmp(l);
@@ -568,7 +573,7 @@ inline _Int operator/(const _Int&nom, const _Int&denom)
 	for (int i = 0; i < 10; i++)
 		tmDnm[i] = denom * _Int(i);
 	//set such that digNom.sutstr[0, idx+1) is the minimal substr that is larger than denom.
-	
+
 	_Int tmp(digNom.substr(0, idx));
 	_Int quot(std::string("0"), false);
 

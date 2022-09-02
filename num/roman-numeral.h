@@ -27,7 +27,11 @@ std::string toRoman(double d)
 		throw std::invalid_argument("Negative numbers are not allowed");
 	std::string answer = toRoman(static_cast<int>(d));
 	d %= 1;
-
+	//TODO: Representation of Fractions
 }
+
+void operator "" _(const char* str) {}
+
+
 
 #endif//__ROMAN_NUMERAL_H__

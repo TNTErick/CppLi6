@@ -31,4 +31,6 @@
 *.out
 *.app
 
+# Unit Test Environments and Projects
 .vs/*
+TestProj/*

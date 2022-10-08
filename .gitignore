@@ -33,4 +33,5 @@
 
 # Unit Test Environments and Projects
 .vs/*
+.vscode/*
 TestProj/*

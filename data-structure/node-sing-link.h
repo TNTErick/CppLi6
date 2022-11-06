@@ -2,23 +2,23 @@
 #ifndef __XY_NODE_SINGLE_LINK_
 #define __XY_NODE_SINGLE_LINK_
 
-namespace XyQZ{
+namespace xy{
     namespace base{
-        struct nodeSingLink{
-          nodeSingLink* nx;
-          nodeSingLink():nx(nullptr){}
-          nodeSingLink(nodeSingLink*next): nx(next){}
+        struct node1Link{
+          node1Link* nx;
+          node1Link():nx(nullptr){}
+          node1Link(node1Link*next): nx(next){}
         };
 
         template<typename T>
-        struct dataNodeSingLink:
-          public nodeSingLink,
+        struct data1Link:
+          public node1Link,
           public T{
           typedef T valueType;
-          dataNodeSingLink(void):nodeSingLink(nullptr), T(){}
-          dataNodeSingLink(nodeSingLink*next):nodeSingLink(next),T(){}
-          dataNodeSingLink(const T& that):nodeSingLink(nullptr), T(that){}
-          dataNodeSingLink(const T& that, nodeSingLink*next):nodeSingLink(next), T(that){}
+          data1Link(void):node1Link(nullptr), T(){}
+          data1Link(node1Link*next):node1Link(next),T(){}
+          data1Link(const T& that):node1Link(nullptr), T(that){}
+          data1Link(const T& that, node1Link*next):node1Link(next), T(that){}
         };
     }
 }

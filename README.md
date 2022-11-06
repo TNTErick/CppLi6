@@ -1,6 +1,6 @@
 # CLi6
+Just a library written by someone learning C++.
 
-Library Not Implemented.
 CppLi6 is a Library of C++ that contains codes I write while I learn to code.
 
 ## Basic Structure of this Library

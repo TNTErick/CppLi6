@@ -2,7 +2,7 @@ namespace py{
 template<typename dataType>
 class clasRange{
 public:
-
+    // a dummy iterator class that allows us to use range-based for loops.
     template<typename T>
     class iterator{
     private:
